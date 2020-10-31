@@ -17,11 +17,13 @@
   },
   "dependencies": {
     "axios": "^0.19.0",
+    "chart.js": "^2.9.4",
     "core-js": "^3.6.5",
     "filepond": "^4.21.1",
     "filepond-plugin-image-preview": "^4.6.4",
     "vue": "^2.6.11",
     "vue-chartist": "^2.2.1",
+    "vue-chartjs": "^3.5.1",
     "vue-filepond": "^6.0.3",
     "vue-meta": "^1.6.0",
     "vue-router": "^3.2.0",
