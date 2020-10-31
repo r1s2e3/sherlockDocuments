@@ -172,7 +172,7 @@
         // you've made optimizations! :)
         await pause(500)
 
-        return fetch('https://jsonplaceholder.typicode.com/users')
+        return fetch('https://jsonplaceholder.typicode.com/photos')
           .then((res) => res.json())
           .then((json) => (item.push(...json)))
           .catch((err) => console.warn(err))

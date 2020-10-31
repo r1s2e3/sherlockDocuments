@@ -49,6 +49,10 @@ export default {
       display: flex;
       align-items: start;
       justify-content: space-around;
+
+      @media (max-width: 414px) {
+        flex-wrap: wrap;
+      }
     }
   }
 

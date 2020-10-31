@@ -32,14 +32,14 @@ export default {
         })
     })
   },
-  uploadFile: ({ commit, state }, { file }) => {
+  uploadFile: ({ state }, { file }) => {
     console.log(file)
     return new Promise((resolve, reject) => {
-      commit('auth_request')
       Fetcher({
         url: endpoints.uploadFile,
         method: 'POST',
         headers: {
+          'Content-Type': 'multipart/form-data',
           'Authorization': `${state.token}`
         },
         data: {
