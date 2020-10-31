@@ -1,0 +1,23 @@
+{
+  "/api-token-auth/": "/api-token-auth",
+  "/idm/api/employees/current/": "/currentUser",
+  "/idm/api/employees/?limit=50": "/employeesAll",
+  "/idm/api/employees/:any/ci/?category__code=:any": "/userApps",
+  "/idm/api/employees/:id/": "/employees/:id",
+  "/idm/api/employees/:any/ci/:id/": "/catalogApps/:id",
+  "/idm/api/orders/approvals/?status=COMPLETED": "/userApprovals",
+  "/idm/api/orders/approvals/": "/userApprovals",
+  "/idm/api/employees/:any/approval-requests/?status=active": "/activeApprovalRequests",
+  "/idm/api/employees/:any/approval-requests/:id": "/approvalRequests/:id",
+  "/idm/api/ci/?limit=50&category=:any/": "/allCatalogApps",
+  "/idm/api/ci/:id/": "/catalogApps/:id",
+  "/idm/api/orders/?status=active": "/activeOrders",
+  "/idm/api/orders/?status=closed": "/closedOrders",
+  "/idm/api/orders/:any/": "/currentOrder",
+  "/idm/api/orders/:any/ci/": "/currentOrderSystems",
+  "/idm/api/orders/:any/ci/:id/": "/catalogApps/:id",
+  "/idm/api/orders/:any/roles/": "/orderRoles",
+  "/idm/api/orders/:any/logs/": "/orderLog",
+  "/idm/api/employees/?limit=:any": "/catalogEmployees",
+  "/idm/api/categories/?limit=:any": "/catalogEmployees"
+}

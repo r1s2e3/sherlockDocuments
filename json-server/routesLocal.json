@@ -1,0 +1,23 @@
+{
+  "/api-token-auth/": "/api-token-auth",
+  "/employees/current/": "/currentUser",
+  "/employees/?limit=50": "/employeesAll",
+  "/employees/:any/ci/?category__code=:any": "/userApps",
+  "/employees/:id/": "/employees/:id",
+  "/employees/:any/ci/:id/": "/catalogApps/:id",
+  "/orders/approvals/?status=COMPLETED": "/userApprovals",
+  "/orders/approvals/": "/userApprovals",
+  "/employees/:any/approval-requests/?status=active": "/activeApprovalRequests",
+  "/employees/:any/approval-requests/:id": "/approvalRequests/:id",
+  "/ci/?limit=50&category=:any/": "/allCatalogApps",
+  "/ci/:id/": "/catalogApps/:id",
+  "/orders/?status=active": "/activeOrders",
+  "/orders/?status=closed": "/closedOrders",
+  "/orders/:any/": "/currentOrder",
+  "/orders/:any/ci/": "/currentOrderSystems",
+  "/orders/:any/ci/:id/": "/catalogApps/:id",
+  "/orders/:any/roles/": "/orderRoles",
+  "/orders/:any/logs/": "/orderLog",
+  "/employees/?limit=:any": "/catalogEmployees",
+  "/categories/?limit=:any": "/catalogEmployees"
+}

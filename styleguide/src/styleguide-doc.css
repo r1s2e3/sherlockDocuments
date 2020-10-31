@@ -1,0 +1,21 @@
+body {
+  line-height: initial;
+}
+
+[class*="rsg--button"] {
+  color: #3eaf7c !important;
+}
+
+.back-light-grey {
+  background: #e0e0e0;
+}
+
+[class*="rsg--table"] thead tr {
+  font-weight: bold;
+  color: #35495e;
+}
+
+[class*="rsg--table"] tbody td:first-child {
+  width: 30%;
+  color: #3eaf7c;
+}

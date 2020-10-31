@@ -1,0 +1,770 @@
+{
+  "api-token-auth": {
+    "username": "test",
+    "password": "test"
+  },
+  "currentUser": {
+    "id": 201,
+    "name": "Иванов Иван Иванович",
+    "short_name": "Иванов И. И.",
+    "department": "ЮФ",
+    "chief": null,
+    "stats": {
+      "path": 0,
+      "ci": 0,
+      "active_orders": 2
+    },
+    "thumbnail": "",
+    "is_chief": false,
+    "deputies": [
+      {
+        "id": 828,
+        "deputy": {
+          "id": 45081,
+          "name": "Иванов Иван Иванович",
+          "short_name": "Иванов И. И.",
+          "department": "ЮФ",
+          "position": "Программист",
+          "thumbnail": "",
+          "phone": "",
+          "email": ""
+        }
+      }
+    ],
+    "phone": "",
+    "position": "Программист",
+    "email": "",
+    "permissions": {
+      "can_view_approvals": false,
+      "can_edit_ci": true,
+      "can_edit_author": true,
+      "can_view_all_orders": true,
+      "can_reject_stranger_request": true
+    }
+  },
+  "userApps": [
+    {
+      "count": 4,
+      "category__code": "PATH",
+      "results": [
+        {
+          "id": 1988,
+          "name": "Хранилище отчетов",
+          "is_folder": true,
+          "selected_roles_count": 3,
+          "short_description": "Дисковое пространство для хранения отчетов"
+        },
+        {
+          "id": 1989,
+          "name": "Почтовый сервис",
+          "is_folder": false,
+          "selected_roles_count": 2,
+          "short_description": "Сервис корпоративных почтовых ящиков"
+        },
+        {
+          "id": 1990,
+          "name": "Хранилище общих файлов",
+          "is_folder": true,
+          "selected_roles_count": 2,
+          "short_description": "Дисковое простанство для хранения файлов общего назначения"
+        },
+        {
+          "id": 1991,
+          "name": "Сервис обработки заявок",
+          "is_folder": false,
+          "selected_roles_count": 1,
+          "short_description": "Cлужба принимающая и обрабатывающая заявки"
+        }
+      ]
+    },
+    {
+      "count": 2,
+      "category__code": "BUSINESS_APPLICATION",
+      "results": [
+        {
+          "id": 1989,
+          "name": "Почтовый сервис",
+          "is_folder": false,
+          "selected_roles_count": 2,
+          "short_description": "Сервис корпоративных почтовых ящиков"
+        },
+        {
+          "id": 1990,
+          "name": "Хранилище общих файлов",
+          "is_folder": true,
+          "selected_roles_count": 2,
+          "short_description": "Дисковое простанство для хранения файлов общего назначения"
+        }
+      ]
+    },
+    {
+      "count": 0,
+      "category__code": "SERVICES",
+      "results": []
+    }
+  ],
+  "employeesAll": {
+    "count": 7,
+    "results": [
+      {
+        "id": 1000,
+        "name": "Федотов Петр Васильевич",
+        "short_name": "Федотов П. В.",
+        "department": "Группа инвентаря",
+        "position": "Специалист",
+        "thumbnail": ""
+      },
+      {
+        "id": 1001,
+        "name": "Сидоренко Елена Петровна",
+        "short_name": "Сидоренко Е. П.",
+        "department": "Группа развития сервисов",
+        "position": "Руководитель группы",
+        "thumbnail": ""
+      },
+      {
+        "id": 1002,
+        "name": "Ваничева Валентина Васильевна",
+        "short_name": "Ваничева В. В.",
+        "department": "Департамент перспективного развития",
+        "position": "Директор департамента",
+        "thumbnail": ""
+      },
+      {
+        "id": 1003,
+        "name": "Федосеев Иван Петрович",
+        "short_name": "Федосеев И. П.",
+        "department": "Группа финансов",
+        "position": "Специалист по финансам",
+        "thumbnail": ""
+      },
+      {
+        "id": 1004,
+        "name": "Петренко Ангелина Юрьевна",
+        "short_name": "Петренко А. Ю.",
+        "department": "Группа инновационных стандартов",
+        "position": "Менеджер",
+        "thumbnail": ""
+      },
+      {
+        "id": 1005,
+        "name": "Василенко Юлия Федоровна",
+        "short_name": "Василенко Ю. Ф.",
+        "department": "Группа складского учета",
+        "position": "Руководитель группы",
+        "thumbnail": ""
+      },
+      {
+        "id": 1006,
+        "name": "Архипова Алевтина Сергеевна",
+        "short_name": "Архипова А. С.",
+        "department": "Отдел обслуживания персонала",
+        "position": "Оператор",
+        "thumbnail": ""
+      }
+    ]
+  },
+  "employees": [
+    {
+      "id": 1000,
+      "name": "Федотов Петр Васильевич",
+      "short_name": "Федотов П. В.",
+      "department": "Группа инвентаря",
+      "position": "Специалист",
+      "thumbnail": ""
+    },
+    {
+      "id": 1001,
+      "name": "Сидоренко Елена Петровна",
+      "short_name": "Сидоренко Е. П.",
+      "department": "Группа развития сервисов",
+      "position": "Руководитель группы",
+      "thumbnail": ""
+    },
+    {
+      "id": 1002,
+      "name": "Ваничева Валентина Васильевна",
+      "short_name": "Ваничева В. В.",
+      "department": "Департамент перспективного развития",
+      "position": "Директор департамента",
+      "thumbnail": ""
+    },
+    {
+      "id": 1003,
+      "name": "Федосеев Иван Петрович",
+      "short_name": "Федосеев И. П.",
+      "department": "Группа финансов",
+      "position": "Специалист по финансам",
+      "thumbnail": ""
+    },
+    {
+      "id": 1004,
+      "name": "Петренко Ангелина Юрьевна",
+      "short_name": "Петренко А. Ю.",
+      "department": "Группа инновационных стандартов",
+      "position": "Менеджер",
+      "thumbnail": ""
+    },
+    {
+      "id": 1005,
+      "name": "Василенко Юлия Федоровна",
+      "short_name": "Василенко Ю. Ф.",
+      "department": "Группа складского учета",
+      "position": "Руководитель группы",
+      "thumbnail": ""
+    },
+    {
+      "id": 1006,
+      "name": "Архипова Алевтина Сергеевна",
+      "short_name": "Архипова А. С.",
+      "department": "Отдел обслуживания персонала",
+      "position": "Оператор",
+      "thumbnail": ""
+    }
+  ],
+  "userApprovals": {
+    "count": 2,
+    "results": [
+      {
+        "id": 123,
+        "created_at": "21.10.2018",
+        "consumer_label": "Васильев П.А.",
+        "consumer_object": {
+          "id": 15,
+          "thumbnail": "",
+          "short_name": "Архипова А.С.",
+          "position": "Директор департамента развития",
+          "department": "Департамент развития",
+          "phone": "98765",
+          "email": "hello@hello.com"
+        },
+        "author_label": "Иванов И.И.",
+        "author_object": {
+          "id": 19,
+          "thumbnail": "",
+          "short_name": "Иванов И.И.",
+          "position": "Руководитель направления продаж",
+          "department": "Департамент развития",
+          "phone": "54321",
+          "email": "goodbye@hello.com"
+        },
+        "status": {
+          "label": "В работе",
+          "status": "WAITING"
+        },
+        "is_approved": false
+      },
+      {
+        "id": 124,
+        "created_at": "22.10.2018",
+        "consumer_label": "Петриченко И.В.",
+        "consumer_object": {
+          "id": 15,
+          "thumbnail": "",
+          "short_name": "Петриченко И.В.",
+          "position": "Директор департамента развития",
+          "department": "Департамент развития",
+          "phone": "98765",
+          "email": "hello@hello.com"
+        },
+        "author_label": "Иванов И.И.",
+        "author_object": {
+          "id": 19,
+          "thumbnail": "",
+          "short_name": "Иванов И.И.",
+          "position": "Руководитель направления продаж",
+          "department": "Департамент развития",
+          "phone": "54321",
+          "email": "goodbye@hello.com"
+        },
+        "status": {
+          "label": "В работе",
+          "status": "WAITING"
+        },
+        "is_approved": true
+      }
+    ]
+  },
+  "activeApprovalRequests": {
+    "count": 2,
+    "results": [
+      {
+        "id": 123,
+        "approver": "Петров И.В.",
+        "comment": "Необходим доступ",
+        "consumer": "Иванов А.Д.",
+        "customer": "Сидоров И.Ф.",
+        "created_at": "21.12.2018",
+        "status": {
+          "label": "На согласовании",
+          "status": "WAITING"
+        },
+        "order": {
+          "id": 123,
+          "author_label": "Иванов И.И.",
+          "consumer_label": "Сидоров П.Г."
+        }
+      },
+      {
+        "id": 124,
+        "approver": "Петров И.В.",
+        "comment": "Необходим доступ",
+        "consumer": "Иванов А.Д.",
+        "customer": "Сидоров И.Ф.",
+        "created_at": "20.12.2018",
+        "status": {
+          "label": "На согласовании",
+          "status": "WAITING"
+        },
+        "order": {
+          "id": 124,
+          "author_label": "Иванов И.И.",
+          "consumer_label": "Сидоров П.Г."
+        }
+      }
+    ]
+  },
+  "approvalRequests": [
+    {
+      "id": 123,
+      "approver": "Петров И.В.",
+      "consumer": "Иванов А.Д.",
+      "customer": "Сидоров И.Ф.",
+      "created_at": "21.12.2018",
+      "comment": "",
+      "status": {
+        "label": "На согласовании",
+        "status": "WAITING"
+      },
+      "order": {
+        "id": 123,
+        "author_label": "Иванов И.И.",
+        "consumer_label": "Сидоров П.Г.",
+        "comment": "Необходим доступ к данным системам"
+      }
+    },
+    {
+      "id": 124,
+      "approver": "Петров И.В.",
+      "comment": "",
+      "consumer": "Иванов А.Д.",
+      "customer": "Сидоров И.Ф.",
+      "created_at": "20.12.2018",
+      "status": {
+        "label": "На согласовании",
+        "status": "WAITING"
+      },
+      "order": {
+        "id": 124,
+        "author_label": "Иванов И.И.",
+        "consumer_label": "Сидоров П.Г.",
+        "comment": "Необходим доступ"
+      }
+    }
+  ],
+  "catalogApps": [
+    {
+      "id": 1988,
+      "name": "Хранилище отчетов",
+      "description": "",
+      "appointment": "",
+      "is_folder": true,
+      "m_systems": [],
+      "approvers": [
+        "Иванов О.А.",
+        "Сидоров Г.Д.",
+        "Петров В.Р."
+      ],
+      "roles": [
+        {
+          "id": 12504,
+          "approvers": [
+            "Иванов Р.В.",
+            "Гудков П.Л.",
+            "Балуева П.Л."
+          ],
+          "label": "Удаление",
+          "description": "Доступ к удалению файлов",
+          "readonly": true,
+          "checked": true,
+          "order_role_status": {
+            "label": "Согласована",
+            "status": "COMPLETED"
+          }
+        },
+        {
+          "id": 12505,
+          "approvers": [
+            "Титова Б.Г."
+          ],
+          "label": "Чтение",
+          "description": "Доступ к чтению файлов",
+          "readonly": false,
+          "checked": false,
+          "order_role_status": {
+            "label": "Отклонена",
+            "status": "REJECTED"
+          }
+        },
+        {
+          "id": 12506,
+          "approvers": [
+            "Титова Б.Г.",
+            "Петрова Н.И."
+          ],
+          "label": "Запись",
+          "description": "Доступ к записи файлов в сетевое хрунилище",
+          "readonly": false,
+          "checked": false,
+          "order_role_status": {
+            "label": "На согласовании",
+            "status": "IN_WORK"
+          }
+        }
+      ]
+    },
+    {
+      "id": 1989,
+      "name": "Почта",
+      "description": "",
+      "appointment": "Cлужба доставки электронных сообщений, предлагающая быстрый доступ к электронной почте, персональным и групповым календарям и контактам. Интерфейс клиента электронной почты позволяет выбирать папки с сообщениями, сообщения и просматривать тексты сообщений.",
+      "is_folder": false,
+      "m_systems": [
+        {
+          "id": 41,
+          "name": "Доступ к почтовому серверу",
+          "roles": [
+            {
+              "id": 73,
+              "approvers": [
+                "Кускова И.П.",
+                "Васильченко А.И."
+              ],
+              "label": "Доступ к почтовому ящику",
+              "description": "",
+              "readonly": true,
+              "checked": true,
+              "order_role_status": {
+                "label": "Согласовано",
+                "status": "COMPLETED"
+              }
+            }
+          ],
+          "approvers": [
+            "Сидоров Р.В.",
+            "Федосеев П.Л."
+          ]
+        },
+        {
+          "id": 42,
+          "name": "Доступ к корпоративному календарю",
+          "roles": [
+            {
+              "id": 83,
+              "approvers": [
+                "Федоренко В.П.",
+                "Киров И.И."
+              ],
+              "label": "Доступ к календарю в почтовом ящике",
+              "description": "",
+              "readonly": false,
+              "checked": false,
+              "order_role_status": {
+                "label": "На согласовании",
+                "status": "IN_WORK"
+              }
+            }
+          ],
+          "approvers": [
+            "Серов В.И."
+          ]
+        }
+      ],
+      "approvers": [
+        "Сидоров Р.В.",
+        "Гудков П.Л.",
+        "Федосеев П.Л."
+      ],
+      "roles": []
+    },
+    {
+      "id": 1990,
+      "name": "Хранилище общих файлов",
+      "description": "",
+      "appointment": "",
+      "is_folder": true,
+      "m_systems": [],
+      "approvers": [
+        "Куренков А.К.",
+        "Иванов П.Л.",
+        "Федосеев П.Л."
+      ],
+      "roles": [
+        {
+          "id": 12505,
+          "approvers": [
+            "Титова А. А."
+          ],
+          "label": "Чтение",
+          "description": "Доступ к скачиванию файлов из сетевое хрунилище",
+          "readonly": true,
+          "checked": true,
+          "order_role_status": {
+            "label": "Согласовано",
+            "status": "COMPLETED"
+          }
+        },
+        {
+          "id": 12506,
+          "approvers": [
+            "Титова А. А."
+          ],
+          "label": "Запись",
+          "description": "",
+          "readonly": false,
+          "checked": false,
+          "order_role_status": {
+            "label": "На согласовании",
+            "status": "IN_WORK"
+          }
+        }
+      ]
+    }
+  ],
+  "allCatalogApps": {
+    "count": 4,
+    "results": [
+      {
+        "id": 1988,
+        "name": "Хранилище отчетов",
+        "is_folder": true,
+        "selected_roles_count": 3,
+        "short_description": "Дисковое пространство для хранения отчетов"
+      },
+      {
+        "id": 1989,
+        "name": "Почтовый сервис",
+        "is_folder": false,
+        "selected_roles_count": 2,
+        "short_description": "Сервис корпоративных почтовых ящиков"
+      },
+      {
+        "id": 1990,
+        "name": "Хранилище общих файлов",
+        "is_folder": true,
+        "selected_roles_count": 2,
+        "short_description": "Дисковое простанство для хранения файлов общего назначения"
+      },
+      {
+        "id": 1991,
+        "name": "Сервис обработки заявок",
+        "is_folder": false,
+        "selected_roles_count": 1,
+        "short_description": "Cлужба принимающая и обрабатывающая заявки"
+      }
+    ]
+  },
+  "activeOrders": {
+    "count": 2,
+    "results": [
+      {
+        "id": 1515,
+        "created_at": "20.05.2018",
+        "consumer": 1122,
+        "consumer_label": "Сидоров В.И.",
+        "author_label": "Иванов И.И.",
+        "status": {
+          "label": "В работе",
+          "status": "WAITING"
+        }
+      },
+      {
+        "id": 1516,
+        "created_at": "20.05.2018",
+        "consumer": 201,
+        "consumer_label": "Иванов И.И.",
+        "author_label": "Иванов И.И.",
+        "status": {
+          "label": "В работе",
+          "status": "WAITING"
+        }
+      }
+    ]
+  },
+  "closedOrders": {
+    "count": 2,
+    "results": [
+      {
+        "id": 1517,
+        "created_at": "18.07.2018",
+        "consumer": 1122,
+        "consumer_label": "Сидоров В.И.",
+        "author_label": "Иванов И.И.",
+        "status": {
+          "label": "Завершен",
+          "status": "COMPLETED"
+        }
+      },
+      {
+        "id": 1518,
+        "created_at": "20.08.2018",
+        "consumer": 201,
+        "consumer_label": "Иванов И.И.",
+        "author_label": "Иванов И.И.",
+        "status": {
+          "label": "Завершен",
+          "status": "COMPLETED"
+        }
+      }
+    ]
+  },
+  "currentOrder": {
+    "id": 123,
+    "created_at": "21.12.2018",
+    "status": {
+      "label": "В работе",
+      "status": "IN_WORK"
+    },
+    "consumer_label": "Архипова А.С.",
+    "consumer_object": {
+      "id": 15,
+      "thumbnail": "",
+      "short_name": "Архипова А.С.",
+      "position": "Директор департамента развития",
+      "department": "Департамент развития",
+      "phone": "98765",
+      "email": "hello@hello.com"
+    },
+    "author_label": "Иванов И.И.",
+    "author_object": {
+      "id": 19,
+      "thumbnail": "",
+      "short_name": "Иванов И.И.",
+      "position": "Руководитель направления продаж",
+      "department": "Департамент развития",
+      "phone": "54321",
+      "email": "goodbye@hello.com"
+    },
+    "chief": 176,
+    "chief_label": "Федоренко А.Ю.",
+    "consumer": 201,
+    "roles_count": 8
+  },
+  "currentOrderSystems": {
+    "count": 3,
+    "results": [
+      {
+        "id": 1988,
+        "name": "Хранилище отчетов",
+        "is_folder": true,
+        "selected_roles_count": 3,
+        "short_description": "Дисковое пространство для хранения отчетов"
+      },
+      {
+        "id": 1989,
+        "name": "Почтовый сервис",
+        "is_folder": false,
+        "selected_roles_count": 2,
+        "short_description": "Сервис корпоративных почтовых ящиков"
+      },
+      {
+        "id": 1990,
+        "name": "Хранилище общих файлов",
+        "is_folder": true,
+        "selected_roles_count": 2,
+        "short_description": "Дисковое простанство для хранения файлов общего назначения"
+      },
+      {
+        "id": 1991,
+        "name": "Сервис обработки заявок",
+        "is_folder": false,
+        "selected_roles_count": 1,
+        "short_description": "Cлужба принимающая и обрабатывающая заявки"
+      }
+    ]
+  },
+  "orderRoles": {
+    "count": 3,
+    "results": [
+      {
+        "description": "",
+        "justification": "",
+        "role_id": 12506
+      },
+      {
+        "description": "",
+        "justification": "",
+        "role_id": 83
+      }
+    ]
+  },
+  "orderLog": {
+    "text": "Согласующий Иванов Иван Иванович согласовал Вашу заявку по роли(-ям): \"Удаление\",  \"Чтение\",  \"Запись\"  для \"Хранилище отчетов\",  \"Доступ к почтовому ящику\",  \"Доступ к календарю в почтовом ящике\"  для \"Почтовый сервис\",  \"Чтение\",  \"Запись\"  для \"Хранилище общих файлов\",  \"Доступ к сервису\"  для \"Сервис обработки заявок\", "
+  },
+  "catalogEmployees": {
+    "count": 6,
+    "results": [
+      {
+        "id": 3526,
+        "name": "Иванов Иван Иванович",
+        "department": "Отдел по работе с клиентами",
+        "position": "Менеджер отдела"
+      },
+      {
+        "id": 7541,
+        "name": "Федорова Екатерина Ивановна",
+        "department": "Отдел разработки дизайна кроссовок",
+        "position": "Специалист по дизайну"
+      },
+      {
+        "id": 8454,
+        "name": "Петров Петр Григорьевич",
+        "department": "Группа развития корпоративных сервисов",
+        "position": "Руководитель группы"
+      },
+      {
+        "id": 9852,
+        "name": "Делягин Федот Петрович",
+        "department": "Департамент по развитию сетевых магазинов",
+        "position": "Директор департамента"
+      },
+      {
+        "id": 7854,
+        "name": "Кускова Ирина Петровна",
+        "department": "Бухгалтерия",
+        "position": "Главный бухгалтер"
+      },
+      {
+        "id": 7747,
+        "name": "Григорьева Елена Федоровна",
+        "department": "Отдел финансового планирования",
+        "position": "Главный специалист по планированию"
+      }
+    ]
+  },
+  "categories": {
+    "count": 3,
+    "next": null,
+    "previous": null,
+    "results": [
+      {
+        "code": "PATH",
+        "name": "Файловые ресурсы",
+        "is_visible": true,
+        "index": 4
+      },
+      {
+        "code": "BUSINESS_APPLICATION",
+        "name": "Бизнес-приложение",
+        "is_visible": true,
+        "index": 5
+      },
+      {
+        "code": "SERVICES",
+        "name": "Сервисы",
+        "is_visible": true,
+        "index": 7
+      }
+    ]
+  }
+}
