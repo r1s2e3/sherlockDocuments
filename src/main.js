@@ -14,6 +14,8 @@ import 'material-design-icons-iconfont/dist/material-design-icons.css'
 
 // Sync router with store
 import { sync } from 'vuex-router-sync'
+
+import './registerServiceWorker'
 // Sync store with router
 sync(store, router)
 

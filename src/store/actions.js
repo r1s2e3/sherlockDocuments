@@ -32,15 +32,17 @@ export default {
         })
     })
   },
-  uploadFile: ({ state }, { file }) => {
-    console.log(file)
+  uploadFile: ({ state, commit }, { file }) => {
     return new Promise((resolve, reject) => {
       Fetcher({
         url: endpoints.uploadFile,
         method: 'POST',
         headers: {
-          'Content-Type': 'multipart/form-data',
           'Authorization': `${state.token}`
+        },
+        onUploadProgress ({ loaded, total }) {
+          const uploadProgress = Math.round(loaded / total * 100)
+          commit('setPercentage', uploadProgress)
         },
         data: {
           file

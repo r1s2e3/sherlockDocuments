@@ -17,8 +17,7 @@
           >
             <file-pond
               ref="pond"
-              :allow-multiple="true"
-              :allowImagePreview="true"
+              :allow-multiple="false"
               max-files="1"
               class="rectangle-upload-image file-upload"
               label-idle="Выберите файл для загрузки"
@@ -36,7 +35,6 @@
             <p>Или перетащите сюда документ</p>
           </div>
           <div>
-            <progress-button>Button</progress-button>
             <v-btn
               :disabled="!this.file"
               class="upload-file--btn"
@@ -57,6 +55,7 @@
 </template>
 
 <script>
+  import { mapMutations } from 'vuex'
   import vueFilePond from 'vue-filepond'
   import 'filepond/dist/filepond.min.css'
   import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css'
@@ -76,6 +75,7 @@
       FilePond
     },
     methods: {
+      ...mapMutations(['setLoading']),
       openNavigateWindow () {
         const { pond } = this.$refs
         pond.browse()
@@ -97,13 +97,18 @@
       },
       uploadFile () {
         const file = this.file
+        this.setLoading(true)
         this.$store.dispatch('uploadFile', {
           file
         })
-          .then(() => console.log('успех'))
+          .then(() => {
+            this.setLoading(false)
+            console.log('успех')
+          })
           .catch((err) => {
-              console.log(err)
-            }
+            this.setLoading(false)
+            console.log(err)
+          }
           )
       }
     }
