@@ -55,6 +55,14 @@ export default [
         component: () => import('@/components/DashViews/UploadDocs.vue')
       },
       {
+        path: 'search',
+        meta: {
+          name: 'Search-panel',
+          requiresAuth: true
+        },
+        component: () => import('@/components/DashViews/Search.vue')
+      },
+      {
         path: 'notifications',
         meta: {
           name: 'Notifications',

@@ -54,7 +54,7 @@ export default {
 
   .Chart {
     padding: 20px;
-    box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, .4);
+    box-shadow: 0 0 20px 2px rgba(0, 0, 0, .4);
     border-radius: 20px;
     margin: 20px 0;
   }

@@ -74,7 +74,7 @@ export default {
       },
 
       {
-        to: '/dashboard/search-docs',
+        to: '/dashboard/search',
         icon: 'mdi-file-document-box-multiple-outline',
         text: 'Все документы'
       }
