@@ -7,49 +7,50 @@
       justify-center
       wrap
     >
-      <v-flex
-        xs12
-        md8
+      <div
+        class="document-fields"
+        v-if="!isUploadView"
       >
-        <div class="file">
-          <div
-            class="file-icon"
-          >
-            <file-pond
-              ref="pond"
-              :allow-multiple="false"
-              max-files="1"
-              class="rectangle-upload-image file-upload"
-              label-idle="Выберите файл для загрузки"
-              :instant-upload="false"
-              @init="handleFilePondInit"
-              @removefile="removeFile"
-              @updatefiles="addFile"
-              @activatefile="touchFile"
-            />
+        <document-fields :doc="responce"/>
+      </div>
+      <div v-if="isUploadView">
+        <v-flex
+          xs12
+          md8
+        >
+          <div class="file">
+            <div
+              class="file-icon"
+            >
+              <file-pond
+                ref="pond"
+                :allow-multiple="false"
+                max-files="1"
+                class="rectangle-upload-image file-upload"
+                label-idle="Выберите файл для загрузки"
+                :instant-upload="false"
+                @init="handleFilePondInit"
+                @removefile="removeFile"
+                @updatefiles="addFile"
+                @activatefile="touchFile"
+              />
+            </div>
+            <div
+              v-if="file"
+              class="file-text-help"
+            >
+              <p>Или перетащите сюда документ</p>
+            </div>
+            <div>
+              <v-btn
+                :disabled="!this.file"
+                class="upload-file--btn"
+                color="third_theme"
+                @click="uploadFile">Загрузить документ</v-btn>
+            </div>
           </div>
-          <div
-            v-if="file"
-            class="file-text-help"
-          >
-            <p>Или перетащите сюда документ</p>
-          </div>
-          <div>
-            <v-btn
-              :disabled="!this.file"
-              class="upload-file--btn"
-              color="third_theme"
-              @click="uploadFile">Загрузить документ</v-btn>
-          </div>
-        </div>
-      </v-flex>
-      <v-flex
-        v-if="false"
-        xs12
-        md8
-      >
-        после загрузки файлов
-      </v-flex>
+        </v-flex>
+      </div>
     </v-layout>
   </v-container>
 </template>
@@ -57,6 +58,7 @@
 <script>
   import { mapMutations } from 'vuex'
   import vueFilePond from 'vue-filepond'
+  import DocumentFields from './DocumentFields'
   import 'filepond/dist/filepond.min.css'
   import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css'
   import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
@@ -68,11 +70,14 @@
     name: 'UploadFile',
     data () {
       return {
-        file: []
+        file: '',
+        isUploadView: true,
+        responce: {}
       }
     },
     components: {
-      FilePond
+      FilePond,
+      DocumentFields
     },
     methods: {
       ...mapMutations(['setLoading']),
@@ -101,21 +106,26 @@
         this.$store.dispatch('uploadFile', {
           file
         })
-          .then(() => {
+          .then((resp) => {
+            this.isUploadView = false
             this.setLoading(false)
-            console.log('успех')
+            this.responce = resp
+            console.log('файл успешно загружен', resp)
           })
           .catch((err) => {
             this.setLoading(false)
             console.log(err)
-          }
-          )
+          })
       }
     }
   }
 </script>
 
 <style>
+  .document-fields {
+    height: 100%;
+    width: 100%;
+  }
   .upload-file--btn {
     height: 40px !important;
   }
@@ -192,6 +202,11 @@
     Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol';
     height: 650px !important;
+  }
+  @media (max-width: 414px) {
+    .filepond--root {
+      height: 425px !important;
+    }
   }
 
   /* use a hand cursor intead of arrow for the action buttons */
