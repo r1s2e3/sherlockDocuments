@@ -11,45 +11,46 @@
         class="document-fields"
         v-if="!isUploadView"
       >
-        <document-fields />
+        <document-fields :document="responce"/>
       </div>
-      <v-flex
-        v-else
-        xs12
-        md8
-      >
-        <div class="file">
-          <div
-            class="file-icon"
-          >
-            <file-pond
-              ref="pond"
-              :allow-multiple="false"
-              max-files="1"
-              class="rectangle-upload-image file-upload"
-              label-idle="Выберите файл для загрузки"
-              :instant-upload="false"
-              @init="handleFilePondInit"
-              @removefile="removeFile"
-              @updatefiles="addFile"
-              @activatefile="touchFile"
-            />
+      <div v-if="isUploadView">
+        <v-flex
+          xs12
+          md8
+        >
+          <div class="file">
+            <div
+              class="file-icon"
+            >
+              <file-pond
+                ref="pond"
+                :allow-multiple="false"
+                max-files="1"
+                class="rectangle-upload-image file-upload"
+                label-idle="Выберите файл для загрузки"
+                :instant-upload="false"
+                @init="handleFilePondInit"
+                @removefile="removeFile"
+                @updatefiles="addFile"
+                @activatefile="touchFile"
+              />
+            </div>
+            <div
+              v-if="file"
+              class="file-text-help"
+            >
+              <p>Или перетащите сюда документ</p>
+            </div>
+            <div>
+              <v-btn
+                :disabled="!this.file"
+                class="upload-file--btn"
+                color="third_theme"
+                @click="uploadFile">Загрузить документ</v-btn>
+            </div>
           </div>
-          <div
-            v-if="file"
-            class="file-text-help"
-          >
-            <p>Или перетащите сюда документ</p>
-          </div>
-          <div>
-            <v-btn
-              :disabled="!this.file"
-              class="upload-file--btn"
-              color="third_theme"
-              @click="uploadFile">Загрузить документ</v-btn>
-          </div>
-        </div>
-      </v-flex>
+        </v-flex>
+      </div>
     </v-layout>
   </v-container>
 </template>
@@ -69,8 +70,9 @@
     name: 'UploadFile',
     data () {
       return {
-        file: [],
-        isUploadView: true
+        file: '',
+        isUploadView: true,
+        responce: {}
       }
     },
     components: {
@@ -104,10 +106,11 @@
         this.$store.dispatch('uploadFile', {
           file
         })
-          .then(() => {
-            this.setLoading(false)
+          .then((resp) => {
             this.isUploadView = false
-            console.log('успех')
+            this.setLoading(false)
+            this.responce = resp
+            console.log('файл успешно загружен', resp)
           })
           .catch((err) => {
             this.setLoading(false)
