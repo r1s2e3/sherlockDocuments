@@ -1,5 +1,6 @@
 # http://sherlockdocs.ru/
-
+login: artiom
+pass: p@a$w0rD
 ## Project setup
 ```
 npm install
