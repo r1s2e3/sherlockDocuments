@@ -125,7 +125,6 @@ export default {
       }
     },
     logout () {
-      // попап с потверждением
       this.$store.dispatch('logout').then(() => {
         this.$router.push('/')
       })

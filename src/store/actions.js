@@ -57,15 +57,15 @@ export default {
           reject(err.response)
         })
     })
+  },
+  logout ({ commit }) {
+    return new Promise((resolve) => {
+      commit('logout')
+      localStorage.removeItem('token')
+      delete Fetcher.defaults.headers.common['Authorization']
+      resolve()
+    })
   }
-  // logout ({ commit }) {
-  //   return new Promise((resolve) => {
-  //     commit('logout')
-  //     localStorage.removeItem('token')
-  //     delete axios.defaults.headers.common['Authorization']
-  //     resolve()
-  //   })
-  // },
   // refreshtoken ({ commit }) {
   //   axios.get('/refresh')
   //     .then((response) => {
