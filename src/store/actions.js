@@ -49,7 +49,8 @@ export default {
         }
       })
         .then((resp) => {
-          resolve(resp)
+          console.log(resp)
+          resolve(resp.data)
         })
         .catch((err) => {
           console.log('upload error,', err)
