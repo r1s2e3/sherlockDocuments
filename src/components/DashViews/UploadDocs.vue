@@ -115,8 +115,7 @@
           .catch((err) => {
             this.setLoading(false)
             console.log(err)
-          }
-          )
+          })
       }
     }
   }

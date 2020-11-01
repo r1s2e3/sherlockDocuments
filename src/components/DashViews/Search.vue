@@ -3,188 +3,176 @@
     fill-height
     fluid>
     <div class="search">
+      <div class="doc-fields-bnt-groups">
+
+      </div>
       <div class="search--field">
         <v-text-field
-          v-model="message4"
+          v-model="searchText"
           label="Поиск по документам..."
           outlined
           clearable
-        ></v-text-field>
+        >
+        </v-text-field>
+        <v-overflow-btn
+          :items="dropdown_edit"
+          label="Режим поиска"
+          @update:searchInput="updateActivity"
+        />
       </div>
-<!--      <div class="search&#45;&#45;tree">-->
-<!--        <v-card>-->
-<!--          <v-card-title class="indigo white&#45;&#45;text headline">-->
-<!--            User Directory-->
-<!--          </v-card-title>-->
-<!--          <v-row-->
-<!--            class="pa-4"-->
-<!--            justify="space-between"-->
-<!--          >-->
-<!--            <v-col cols="5">-->
-<!--              <v-treeview-->
-<!--                :active.sync="active"-->
-<!--                :items="items"-->
-<!--                :load-children="fetchUsers"-->
-<!--                :open.sync="open"-->
-<!--                activatable-->
-<!--                color="warning"-->
-<!--                open-on-click-->
-<!--                transition-->
-<!--              >-->
-<!--                <template v-slot:prepend="{ item }">-->
-<!--                  <v-icon v-if="!item.children">-->
-<!--                    mdi-account-->
-<!--                  </v-icon>-->
-<!--                </template>-->
-<!--              </v-treeview>-->
-<!--            </v-col>-->
-
-<!--            <v-divider vertical></v-divider>-->
-
-<!--            <v-col-->
-<!--              class="d-flex text-center"-->
-<!--            >-->
-<!--              <v-scroll-y-transition mode="out-in">-->
-<!--                <div-->
-<!--                  v-if="!selected"-->
-<!--                  class="title grey&#45;&#45;text text&#45;&#45;lighten-1 font-weight-light"-->
-<!--                  style="align-self: center;"-->
-<!--                >-->
-<!--                  Select a User-->
-<!--                </div>-->
-<!--                <v-card-->
-<!--                  v-else-->
-<!--                  :key="selected.id"-->
-<!--                  class="pt-6 mx-auto"-->
-<!--                  flat-->
-<!--                  max-width="400"-->
-<!--                >-->
-<!--                  <v-card-text>-->
-<!--                    <v-avatar-->
-<!--                      v-if="avatar"-->
-<!--                      size="88"-->
-<!--                    >-->
-<!--                      <v-img-->
-<!--                        :src="`https://avataaars.io/${avatar}`"-->
-<!--                        class="mb-6"-->
-<!--                      ></v-img>-->
-<!--                    </v-avatar>-->
-<!--                    <h3 class="headline mb-2">-->
-<!--                      {{ selected.name }}-->
-<!--                    </h3>-->
-<!--                    <div class="blue&#45;&#45;text mb-2">-->
-<!--                      {{ selected.email }}-->
-<!--                    </div>-->
-<!--                    <div class="blue&#45;&#45;text subheading font-weight-bold">-->
-<!--                      {{ selected.username }}-->
-<!--                    </div>-->
-<!--                  </v-card-text>-->
-<!--                  <v-divider></v-divider>-->
-<!--                  <v-row-->
-<!--                    class="text-left"-->
-<!--                    tag="v-card-text"-->
-<!--                  >-->
-<!--                    <v-col-->
-<!--                      class="text-right mr-4 mb-2"-->
-<!--                      tag="strong"-->
-<!--                      cols="5"-->
-<!--                    >-->
-<!--                      Company:-->
-<!--                    </v-col>-->
-<!--                    <v-col>{{ selected.company.name }}</v-col>-->
-<!--                    <v-col-->
-<!--                      class="text-right mr-4 mb-2"-->
-<!--                      tag="strong"-->
-<!--                      cols="5"-->
-<!--                    >-->
-<!--                      Website:-->
-<!--                    </v-col>-->
-<!--                    <v-col>-->
-<!--                      <a-->
-<!--                        :href="`//${selected.website}`"-->
-<!--                        target="_blank"-->
-<!--                      >{{ selected.website }}</a>-->
-<!--                    </v-col>-->
-<!--                    <v-col-->
-<!--                      class="text-right mr-4 mb-2"-->
-<!--                      tag="strong"-->
-<!--                      cols="5"-->
-<!--                    >-->
-<!--                      Phone:-->
-<!--                    </v-col>-->
-<!--                    <v-col>{{ selected.phone }}</v-col>-->
-<!--                  </v-row>-->
-<!--                </v-card>-->
-<!--              </v-scroll-y-transition>-->
-<!--            </v-col>-->
-<!--          </v-row>-->
-<!--        </v-card>-->
-<!--      </div>-->
+      <div class="search--main" v-if="searchFromFields">
+        <div class="search--tree">
+          <v-treeview
+            v-model="tree"
+            :open="open"
+            :items="typesOfDocs"
+            item-children="attributes.name"
+            activatable
+            item-key="name"
+            open-on-click
+            :search="searchText"
+          >
+            <template v-slot:prepend="{ item, open }">
+              <v-icon v-if="!item.file">
+                {{ open ? 'mdi-folder-open' : 'mdi-folder' }}
+              </v-icon>
+              <v-icon v-else>
+                {{ typesOfDocs[item.file] }}
+              </v-icon>
+            </template>
+          </v-treeview>
+        </div>
+      </div>
+      <div v-else>
+        <div>
+          <document-fields :document="typesOfDocs"/>
+        </div>
+      </div>
     </div>
   </v-container>
 </template>
 
 <script>
-  const avatars = [
-    '?accessoriesType=Blank&avatarStyle=Circle&clotheColor=PastelGreen&clotheType=ShirtScoopNeck&eyeType=Wink&eyebrowType=UnibrowNatural&facialHairColor=Black&facialHairType=MoustacheMagnum&hairColor=Platinum&mouthType=Concerned&skinColor=Tanned&topType=Turban',
-    '?accessoriesType=Sunglasses&avatarStyle=Circle&clotheColor=Gray02&clotheType=ShirtScoopNeck&eyeType=EyeRoll&eyebrowType=RaisedExcited&facialHairColor=Red&facialHairType=BeardMagestic&hairColor=Red&hatColor=White&mouthType=Twinkle&skinColor=DarkBrown&topType=LongHairBun',
-    '?accessoriesType=Prescription02&avatarStyle=Circle&clotheColor=Black&clotheType=ShirtVNeck&eyeType=Surprised&eyebrowType=Angry&facialHairColor=Blonde&facialHairType=Blank&hairColor=Blonde&hatColor=PastelOrange&mouthType=Smile&skinColor=Black&topType=LongHairNotTooLong',
-    '?accessoriesType=Round&avatarStyle=Circle&clotheColor=PastelOrange&clotheType=Overall&eyeType=Close&eyebrowType=AngryNatural&facialHairColor=Blonde&facialHairType=Blank&graphicType=Pizza&hairColor=Black&hatColor=PastelBlue&mouthType=Serious&skinColor=Light&topType=LongHairBigHair',
-    '?accessoriesType=Kurt&avatarStyle=Circle&clotheColor=Gray01&clotheType=BlazerShirt&eyeType=Surprised&eyebrowType=Default&facialHairColor=Red&facialHairType=Blank&graphicType=Selena&hairColor=Red&hatColor=Blue02&mouthType=Twinkle&skinColor=Pale&topType=LongHairCurly'
-  ]
-
-  const pause = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
-
+  import DocumentFields from './DocumentFields'
   export default {
     name: 'Search',
+    components: {
+      DocumentFields
+    },
     data: () => ({
-      active: [],
-      avatar: null,
-      open: [],
-      users: []
+      searchText: '',
+      isOpenType: true,
+      typesOfDocs: {},
+      searchFromFields: true,
+      searchFromApi: false,
+      searchWay: '',
+      open: ['public'],
+      files: {
+        html: 'mdi-language-html5',
+        jpg: 'mdi-file-image',
+        json: 'mdi-json',
+        md: 'mdi-markdown',
+        pdf: 'mdi-file-pdf',
+        png: 'mdi-file-image',
+        txt: 'mdi-file-document-outline',
+        xls: 'mdi-file-excel'
+      },
+      dropdown_edit: [
+        {
+          text: 'Полнотекстовый'
+        },
+        {
+          text: 'По списку типов'
+        }
+      ],
+      tree: [],
+      items: [
+        {
+          name: '.git'
+        },
+        {
+          name: 'node_modules'
+        },
+        {
+          name: 'public',
+          children: [
+            {
+              name: 'static',
+              children: [{
+                name: 'logo.png',
+                file: 'png'
+              }]
+            },
+            {
+              name: 'favicon.ico',
+              file: 'png'
+            },
+            {
+              name: 'index.html',
+              file: 'html'
+            }
+          ]
+        },
+        {
+          name: '.gitignore',
+          file: 'txt'
+        },
+        {
+          name: 'babel.config.jpg',
+          file: 'jpg'
+        },
+        {
+          name: 'package.json',
+          file: 'json'
+        },
+        {
+          name: 'README.md',
+          file: 'md'
+        },
+        {
+          name: 'vue.config.js',
+          file: 'js'
+        },
+        {
+          name: 'yarn.lock',
+          file: 'txt'
+        }
+      ]
     }),
-
-    computed: {
-      items () {
-        return [
-          {
-            name: 'Users',
-            children: this.users
-          }
-        ]
-      },
-      selected () {
-        if (!this.active.length) return undefined
-
-        const id = this.active[0]
-
-        return this.users.find((user) => user.id === id)
-      }
-    },
-
-    watch: {
-      selected: 'randomAvatar'
-    },
-
     methods: {
-      async fetchUsers (item) {
-        // Remove in 6 months and say
-        // you've made optimizations! :)
-        await pause(500)
-
-        return fetch('https://jsonplaceholder.typicode.com/photos')
-          .then((res) => res.json())
-          .then((json) => (item.push(...json)))
-          .catch((err) => console.warn(err))
+      updateActivity (el) {
+        console.log('2', el)
+        if (el === 'Полнотекстовый') {
+          this.searchFromFields = false
+          this.searchFromApi = true
+        } else {
+          this.searchFromFields = true
+          this.searchFromApi = false
+        }
       },
-      randomAvatar () {
-        this.avatar = avatars[Math.floor(Math.random() * avatars.length)]
+      getTypes () {
+        this.$store.dispatch('getAllTypes')
+          .then((resp) => {
+            this.typesOfDocs = resp
+          })
+          .catch((err) => {
+            console.log(err)
+          })
       }
+    },
+    mounted () {
+      this.getTypes()
     }
   }
 </script>
 
 <style lang="scss">
+  .active {
+    background-color: #387472 !important;
+  }
+  .non-active {
+    background-color: rgba(200, 200, 200, 0.2) !important;
+  }
   .search {
     align-items: center;
     height: 100%;
@@ -194,14 +182,30 @@
     justify-content: flex-start;
 
     &--field {
-      width: 60%;
+      width: 66%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
     }
     &--tree {
+      /*width: 100%;*/
+    }
+    &--main {
       width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
     }
   }
   .text-left {
     display: flex;
+  }
+  .v-select {
+    width: 100px;
+  }
+  .v-treeview-node--click>.v-treeview-node__root,
+  .v-treeview-node--click>.v-treeview-node__root>.v-treeview-node__content>* {
+    font-size: 18px;
   }
 </style>
 

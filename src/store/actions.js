@@ -38,7 +38,7 @@ export default {
         url: endpoints.uploadFile,
         method: 'POST',
         headers: {
-          'Authorization': `${state.token}`
+          'Authorization': state.token
         },
         onUploadProgress ({ loaded, total }) {
           const uploadProgress = Math.round(loaded / total * 100)
@@ -54,6 +54,25 @@ export default {
         })
         .catch((err) => {
           console.log('upload error,', err)
+          reject(err.response)
+        })
+    })
+  },
+  getAllTypes: ({ state }) => {
+    return new Promise((resolve, reject) => {
+      Fetcher({
+        url: endpoints.allTypes,
+        method: 'GET',
+        headers: {
+          'Authorization': state.token
+        }
+      })
+        .then((resp) => {
+          console.log(resp)
+          resolve(resp.data)
+        })
+        .catch((err) => {
+          console.log('GetAllTypes error,', err)
           reject(err.response)
         })
     })
