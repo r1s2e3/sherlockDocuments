@@ -7,7 +7,14 @@
       justify-center
       wrap
     >
+      <div
+        class="document-fields"
+        v-if="!isUploadView"
+      >
+        <document-fields />
+      </div>
       <v-flex
+        v-else
         xs12
         md8
       >
@@ -43,13 +50,6 @@
           </div>
         </div>
       </v-flex>
-      <v-flex
-        v-if="false"
-        xs12
-        md8
-      >
-        после загрузки файлов
-      </v-flex>
     </v-layout>
   </v-container>
 </template>
@@ -57,6 +57,7 @@
 <script>
   import { mapMutations } from 'vuex'
   import vueFilePond from 'vue-filepond'
+  import DocumentFields from './DocumentFields'
   import 'filepond/dist/filepond.min.css'
   import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css'
   import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
@@ -68,11 +69,13 @@
     name: 'UploadFile',
     data () {
       return {
-        file: []
+        file: [],
+        isUploadView: true
       }
     },
     components: {
-      FilePond
+      FilePond,
+      DocumentFields
     },
     methods: {
       ...mapMutations(['setLoading']),
@@ -103,6 +106,7 @@
         })
           .then(() => {
             this.setLoading(false)
+            this.isUploadView = false
             console.log('успех')
           })
           .catch((err) => {
@@ -116,6 +120,10 @@
 </script>
 
 <style>
+  .document-fields {
+    height: 100%;
+    width: 100%;
+  }
   .upload-file--btn {
     height: 40px !important;
   }
