@@ -86,10 +86,19 @@
           </template>
         </v-data-table>
       </div>
+
+      <div class="doc-fields--info">
+        <div>
+          Статус : {{ doc.status }}
+          <span>(после обновлении статуса, атрибуты выводятся в списке выше)</span>
+        </div>
+        <div>Кол-во распознанных страниц: {{ doc.pages.length }}</div>
+        <div></div>
+      </div>
       </div>
 
     <div v-if="isDisplayImg">
-      <v-img src="https://picsum.photos/510/300?random" aspect-ratio="2"></v-img>
+      <v-img :src="doc.file" aspect-ratio="1"></v-img>
     </div>
   </div>
 </template>
@@ -139,7 +148,7 @@
       }
     }),
     props: {
-      document: {
+      doc: {
         type: Object
       }
     },
@@ -249,6 +258,14 @@
     &--dialog {
       display: flex;
       justify-content: center;
+    }
+    &--info {
+      display: flex;
+      flex-direction: column;
+      padding-top: 40px;
+      div {
+        padding-bottom: 15px;
+      }
     }
   }
 </style>

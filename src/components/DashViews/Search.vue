@@ -26,7 +26,6 @@
             v-model="tree"
             :open="open"
             :items="typesOfDocs"
-            item-children="attributes.name"
             activatable
             item-key="name"
             open-on-click

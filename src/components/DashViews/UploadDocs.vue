@@ -11,7 +11,7 @@
         class="document-fields"
         v-if="!isUploadView"
       >
-        <document-fields :document="responce"/>
+        <document-fields :doc="responce"/>
       </div>
       <div v-if="isUploadView">
         <v-flex
