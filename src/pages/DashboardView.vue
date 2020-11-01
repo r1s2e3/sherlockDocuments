@@ -15,7 +15,6 @@
     </v-content>
 
     <core-footer v-if="$route.meta.name !== 'Maps'" />
-
   </v-app>
 </template>
 
@@ -31,5 +30,4 @@ export default {
 </script>
 
 <style>
-
 </style>

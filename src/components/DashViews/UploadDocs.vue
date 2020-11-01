@@ -17,7 +17,7 @@
           >
             <file-pond
               ref="pond"
-              allow-multiple="false"
+              :allow-multiple="false"
               max-files="1"
               class="rectangle-upload-image file-upload"
               label-idle="Выберите файл для загрузки"
@@ -28,7 +28,10 @@
               @activatefile="touchFile"
             />
           </div>
-          <div class="file-text-help">
+          <div
+            v-if="file"
+            class="file-text-help"
+          >
             <p>Или перетащите сюда документ</p>
           </div>
           <div>
@@ -52,25 +55,27 @@
 </template>
 
 <script>
+  import { mapMutations } from 'vuex'
   import vueFilePond from 'vue-filepond'
   import 'filepond/dist/filepond.min.css'
   import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css'
   import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
   import FilePondPluginFileEncode from 'filepond-plugin-file-encode'
-
-  const FilePond = vueFilePond(FilePondPluginImagePreview, FilePondPluginFileEncode)
+  import FilePondPluginFileMetadata from 'filepond-plugin-file-metadata'
+  const FilePond = vueFilePond(FilePondPluginImagePreview, FilePondPluginFileMetadata, FilePondPluginFileEncode)
 
   export default {
     name: 'UploadFile',
     data () {
       return {
-        file: ''
+        file: []
       }
     },
     components: {
       FilePond
     },
     methods: {
+      ...mapMutations(['setLoading']),
       openNavigateWindow () {
         const { pond } = this.$refs
         pond.browse()
@@ -85,20 +90,25 @@
         const pond = this.$refs.pond
         const file = pond._pond.getFile()
         this.file = file.getFileEncodeDataURL()
-        //  getFileEncodeDataURL
+        // this.file = atob(file.getFileEncodeBase64Strin())
       },
       removeFile () {
         this.file = ''
       },
       uploadFile () {
         const file = this.file
+        this.setLoading(true)
         this.$store.dispatch('uploadFile', {
           file
         })
-          .then(() => console.log('успех'))
+          .then(() => {
+            this.setLoading(false)
+            console.log('успех')
+          })
           .catch((err) => {
-              console.log(err)
-            }
+            this.setLoading(false)
+            console.log(err)
+          }
           )
       }
     }
@@ -130,7 +140,24 @@
     background-position: 52% 35%;
     width: 495px;
     height: 695px;
+
   }
+  @media (max-width: 414px) {
+    .file-icon {
+      width: 300px;
+      height: 450px;
+    }
+    .filepond--image-preview-wrapper {
+      height: 420px !important;
+      width: 280px !important;
+    }
+    .filepond--item {
+      width: 280px !important;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
   .file-icon:hover {
     background-image: url(../../assets/fileUpload.svg);
   }

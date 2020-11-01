@@ -15,7 +15,6 @@
           @click.stop="onClickBtn">
           <v-icon>mdi-view-list</v-icon>
         </v-btn>
-        {{ title }}
       </v-toolbar-title>
     </div>
 
@@ -42,7 +41,7 @@
             v-ripple
             slot="activator"
             class="toolbar-items"
-            to="/dashboard/notifications"
+            to="/dashboard"
           >
             <v-badge
               color="error"
@@ -66,7 +65,7 @@
           v-if="false"
           v-ripple
           class="toolbar-items"
-          to="/dashboard/upload-docs">
+          to="/dashboard">
           <v-icon color>mdi-account</v-icon>
         </router-link>
 

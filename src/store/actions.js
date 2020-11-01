@@ -32,22 +32,25 @@ export default {
         })
     })
   },
-  uploadFile: ({ commit, state }, { file }) => {
-    console.log(file)
+  uploadFile: ({ state, commit }, { file }) => {
     return new Promise((resolve, reject) => {
-      commit('auth_request')
       Fetcher({
         url: endpoints.uploadFile,
         method: 'POST',
         headers: {
           'Authorization': `${state.token}`
         },
+        onUploadProgress ({ loaded, total }) {
+          const uploadProgress = Math.round(loaded / total * 100)
+          commit('setPercentage', uploadProgress)
+        },
         data: {
           file
         }
       })
         .then((resp) => {
-          resolve(resp)
+          console.log(resp)
+          resolve(resp.data)
         })
         .catch((err) => {
           console.log('upload error,', err)

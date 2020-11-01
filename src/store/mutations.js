@@ -17,7 +17,10 @@ export default {
     state.authStatus = ''
     state.token = ''
   },
-  setTableList (state, tableList) {
-    state.tableList = tableList
+  setLoading (state, status) {
+    state.isLoading = status
+  },
+  setPercentage (state, num) {
+    state.percentage = num
   }
 }
