@@ -204,6 +204,11 @@
     'Segoe UI Symbol';
     height: 650px !important;
   }
+  @media (max-width: 414px) {
+    .filepond--root {
+      height: 425px !important;
+    }
+  }
 
   /* use a hand cursor intead of arrow for the action buttons */
   .filepond--file-action-button {
